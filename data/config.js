@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const connectDb = async () => {
-    const URL = "mongodb://admin:password@localhost:27017/"
+    const URL = "mongodb://admin:password@mongodb:27017/"
     try{
         await mongoose.connect(URL);
         console.log("Database Running")
