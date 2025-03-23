@@ -10,3 +10,14 @@ services:
       - "27017:27017"
     volumes:
       - ./mongo-data:/data/db
+
+    products:
+    container_name: products-express
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+    command: ["node", "src/index.js"]
