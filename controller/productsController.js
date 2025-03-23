@@ -9,4 +9,14 @@ class ProductsController {
             res.status(200).json(response)
         }
     }
+
+    static async getAllProductByIdController(req, res) {
+        const {id} = req.params
+        const response = await ProductsService.getProductById(id)
+        if  (response.status){
+            res.status(response.status).json({message: response.message})
+        }else{
+            res.status(200).json(response)
+        }
+    }
 }
