@@ -3,7 +3,7 @@ const {Products} = require('../model/products')
 class ProductsService {
     static async getAllProducts(){
         try{
-            const products = await Products.find()
+            const products = await Products.find({status: true})
             if (products.length > 0){
                 return products
             }else{
@@ -16,7 +16,7 @@ class ProductsService {
 
     static async getProductById(id){
         try{
-            const product = await Products.findById(id)
+            const product = await Products.findById(id, {status: true})
             if (product){
                 return product
             }else{
@@ -56,7 +56,7 @@ class ProductsService {
 
     static async deleteProduct(id){
         try{
-            const productDeleted = await Products.findByIdAndDelete(id)
+            const productDeleted = await Products.findByIdAndUpdate(id, {status: false})
             if (productDeleted){
                 return {status: 200, message: 'Product deleted'}
             }else{
