@@ -29,4 +29,15 @@ class ProductsController {
             res.status(201).json(response)
         }
     }
+
+    static async updateProductController(req, res){
+        const {id} = req.params
+        const data = req.body
+        const response = await ProductsService.updateProduct(id, data)
+        if (response.status){
+            res.status(response.status).json({message: response.message})
+        }else{
+            res.status(200).json(response)
+        }
+    }
 }
