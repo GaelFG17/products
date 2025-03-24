@@ -14,5 +14,5 @@ connectDb();
 app.use('/products', productRouter);
 
 app.listen(PORT, () => {
-  console.log('Server running in http://localhost:'+PORT);
+  console.log('Products running in http://localhost:'+PORT + '/products');
 });
