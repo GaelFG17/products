@@ -34,10 +34,10 @@ class ProductsService {
             if (productSaved){
                 return productSaved
             }else{
-                return {status: 400, message: 'Error creating product'}
+                return {codeStatus: 400, message: 'Error creating product'}
             }
         }catch(error){
-            return {status: 500, message: error.message}
+            return {codeStatus: 500, message: error.message}
         }
     }
 
@@ -47,10 +47,10 @@ class ProductsService {
             if (productUpdated){
                 return productUpdated
             }else{
-                return {status: 400, message: 'Error updating product'}
+                return {codeStatus: 400, message: 'Error updating product'}
             }
         }catch(error){
-            return {status: 500, message: error.message}
+            return {codeStatus: 500, message: error.message}
         }
     }
 

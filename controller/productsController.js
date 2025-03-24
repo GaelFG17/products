@@ -23,8 +23,8 @@ class ProductsController {
     static async createProductController(req, res) {
         const product = req.body
         const response = await ProductsService.createProduct(product)
-        if (response.status){
-            res.status(response.status).json({message: response.message})
+        if (response.codeStatus){
+            res.status(response.codeStatus).json({message: response.message})
         }else{
             res.status(201).json(response)
         }
