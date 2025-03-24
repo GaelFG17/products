@@ -19,4 +19,14 @@ class ProductsController {
             res.status(200).json(response)
         }
     }
+
+    static async createProductController(req, res) {
+        const product = req.body
+        const response = await ProductsService.createProduct(product)
+        if (response.status){
+            res.status(response.status).json({message: response.message})
+        }else{
+            res.status(201).json(response)
+        }
+    }
 }
