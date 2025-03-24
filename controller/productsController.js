@@ -40,4 +40,14 @@ class ProductsController {
             res.status(200).json(response)
         }
     }
+    
+    static async deletProductController(req, res){
+        const {id} = req.params
+        const response = await ProductsService.deleteProduct(id)
+        if (response.error){
+            res.status(response.status).json({message: response.error})
+        }else{
+            res.status(response.status).json({message: response.message})
+        }
+    }
 }
