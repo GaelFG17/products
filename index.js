@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 connectDb();
 
-app.use('/products', productRouter);
+app.use('api/v1/products', productRouter);
 
 app.listen(PORT, () => {
   console.log('Products running in http://localhost:'+PORT + '/products');
